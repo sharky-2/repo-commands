@@ -72,29 +72,34 @@ repo -clone "username/repository-name"</code></pre>
 </ul>
 
 <h3>Repository Management</h3>
+<p><strong>Note:</strong> The following commands must be executed from within your project folder.</p>
 <ul class="list-disc pl-4 my-0">
 <li class="my-0">
 <strong>repo -edit</strong>
-<p>Optimizes your repository structure by cleaning unnecessary files and creating a well-organized folder structure for better project management.</p>
-<pre><code class="language-powershell">repo -edit</code></pre>
+<p>Optimizes your repository structure by cleaning unnecessary files and creating a well-organized folder structure for better project management. Must be run from within the project directory.</p>
+<pre><code class="language-powershell">cd my-awesome-project
+repo -edit</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -commit "message"</strong>
-<p>Creates a new commit with the specified message, saving your changes to the local repository.</p>
-<pre><code class="language-powershell">repo -commit "Add new feature"</code></pre>
+<p>Creates a new commit with the specified message, saving your changes to the local repository. Must be run from within the project directory.</p>
+<pre><code class="language-powershell">cd my-awesome-project
+repo -commit "Add new feature"</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -push</strong>
-<p>Uploads your local changes to your GitHub profile, making them available in the remote repository.</p>
-<pre><code class="language-powershell">repo -push</code></pre>
+<p>Uploads your local changes to your GitHub profile, making them available in the remote repository. Must be run from within the project directory.</p>
+<pre><code class="language-powershell">cd my-awesome-project
+repo -push</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -sync "optional commit message"</strong>
-<p>Synchronizes your local repository with the remote repository, pulling any new changes and optionally creating a commit to merge these changes.</p>
-<pre><code class="language-powershell">repo -sync "Sync with remote changes"</code></pre>
+<p>Synchronizes your local repository with the remote repository, pulling any new changes and optionally creating a commit to merge these changes. Must be run from within the project directory.</p>
+<pre><code class="language-powershell">cd my-awesome-project
+repo -sync "Sync with remote changes"</code></pre>
 </li>
 </ul>
 
