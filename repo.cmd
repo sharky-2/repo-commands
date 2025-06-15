@@ -28,7 +28,10 @@ if "%1"=="-edit" (
 )
 
 if "%1"=="-push" (
-    call "%cmdfolder%\push.cmd"
+    REM Shift the first argument (-push) off
+    shift
+    REM Now %1 and %2 are branch and commit message, forward them
+    call "%cmdfolder%\push.cmd" %*
     exit /b %errorlevel%
 )
 
