@@ -1,0 +1,1 @@
+$Env:Path += ";C:\Users\Uporabnik\OneDrive\CMD Commands”
