@@ -38,7 +38,7 @@ if not exist ".git" (
     git init
     git add .
     git commit -m "%COMMIT_MSG%"
-    git branch -M master
+    git branch -M main
 )
 
 REM ===== Check and add remote origin =====
@@ -59,10 +59,10 @@ echo Committing changes...
 git commit --allow-empty -m "%COMMIT_MSG%"
 
 echo Pulling from GitHub (to avoid rejection)...
-git pull origin master --allow-unrelated-histories
+git pull origin main --allow-unrelated-histories
 
-echo Pushing to GitHub (master)...
-git push -u origin master
+echo Pushing to GitHub (main)...
+git push -u origin main
 
 if errorlevel 1 (
     echo ❌ Push failed. Check repo permissions or GitHub link.
