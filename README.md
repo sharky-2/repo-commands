@@ -58,14 +58,16 @@
 <ul class="list-disc pl-4 my-0">
 <li class="my-0">
 <strong>repo -new "project-name"</strong>
-<p>Creates a new repository with the specified project name.</p>
+<p>Creates a new React project with the specified project name, setting up a modern development environment.</p>
 <pre><code class="language-powershell">repo -new "my-awesome-project"</code></pre>
 </li>
 
 <li class="my-0">
-<strong>repo -clone "repository-url"</strong>
-<p>Clones a repository from the provided URL.</p>
-<pre><code class="language-powershell">repo -clone "https://github.com/username/repository.git"</code></pre>
+<strong>repo -clone "repository-url" or "username/repository-name"</strong>
+<p>Clones a repository from GitHub. Supports both full URLs and shorthand username/repository-name format.</p>
+<pre><code class="language-powershell">repo -clone "https://github.com/username/repository.git"
+# or using shorthand
+repo -clone "username/repository-name"</code></pre>
 </li>
 </ul>
 
@@ -73,25 +75,25 @@
 <ul class="list-disc pl-4 my-0">
 <li class="my-0">
 <strong>repo -edit</strong>
-<p>Opens the repository in your default editor for making changes.</p>
+<p>Optimizes your repository structure by cleaning unnecessary files and creating a well-organized folder structure for better project management.</p>
 <pre><code class="language-powershell">repo -edit</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -commit "message"</strong>
-<p>Creates a new commit with the specified message.</p>
+<p>Creates a new commit with the specified message, saving your changes to the local repository.</p>
 <pre><code class="language-powershell">repo -commit "Add new feature"</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -push</strong>
-<p>Pushes your changes to the remote repository.</p>
+<p>Uploads your local changes to your GitHub profile, making them available in the remote repository.</p>
 <pre><code class="language-powershell">repo -push</code></pre>
 </li>
 
 <li class="my-0">
 <strong>repo -sync "optional commit message"</strong>
-<p>Synchronizes your local repository with the remote, pulling changes and optionally creating a commit.</p>
+<p>Synchronizes your local repository with the remote repository, pulling any new changes and optionally creating a commit to merge these changes.</p>
 <pre><code class="language-powershell">repo -sync "Sync with remote changes"</code></pre>
 </li>
 </ul>
