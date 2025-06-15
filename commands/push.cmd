@@ -26,10 +26,18 @@ if not exist ".gitignore" (
     ) > .gitignore
 )
 
-REM ===== Get commit message from arguments =====
+REM ===== Get commit message and branch from arguments =====
 set "COMMIT_MSG=Auto update"
+set "BRANCH=main"
+
+REM If 1st argument exists, it's commit message
 if not "%~1"=="" (
-    set "COMMIT_MSG=%*"
+    set "COMMIT_MSG=%~1"
+)
+
+REM If 2nd argument exists, it's branch name
+if not "%~2"=="" (
+    set "BRANCH=%~2"
 )
 
 REM ===== Initialize Git if needed =====
@@ -38,7 +46,7 @@ if not exist ".git" (
     git init
     git add .
     git commit -m "%COMMIT_MSG%"
-    git branch -M main
+    git branch -M %BRANCH%
 )
 
 REM ===== Check and add remote origin =====
@@ -58,11 +66,11 @@ git add .
 echo Committing changes...
 git commit --allow-empty -m "%COMMIT_MSG%"
 
-echo Pulling from GitHub (to avoid rejection)...
-git pull origin main --allow-unrelated-histories
+echo Pulling from GitHub (to avoid rejection) on branch %BRANCH%...
+git pull origin %BRANCH% --allow-unrelated-histories
 
-echo Pushing to GitHub (main)...
-git push -u origin main
+echo Pushing to GitHub (%BRANCH%)...
+git push -u origin %BRANCH%
 
 if errorlevel 1 (
     echo ❌ Push failed. Check repo permissions or GitHub link.
