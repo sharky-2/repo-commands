@@ -1,11 +1,6 @@
 @echo off
 setlocal
 
-REM ===== Debug args (optional, remove after testing) =====
-REM echo Arg1 (branch): %1
-REM echo Arg2 (commit message): %2
-REM pause
-
 REM ===== Get repo name from current folder =====
 for %%I in (.) do set "REPO_NAME=%%~nxI"
 set "GITHUB_URL=https://github.com/sharky-2/%REPO_NAME%.git"
@@ -31,16 +26,13 @@ if not exist ".gitignore" (
     ) > .gitignore
 )
 
-REM ===== Get branch and commit message from arguments =====
+REM ===== Use main branch only =====
 set "BRANCH=main"
 set "COMMIT_MSG=Auto update"
 
+REM If commit message was passed as first argument, use it
 if not "%~1"=="" (
-    set "BRANCH=%~1"
-)
-
-if not "%~2"=="" (
-    set "COMMIT_MSG=%~2"
+    set "COMMIT_MSG=%~1"
 )
 
 REM ===== Initialize Git if needed =====

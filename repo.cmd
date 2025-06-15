@@ -30,7 +30,7 @@ if "%1"=="-edit" (
 if "%1"=="-push" (
     REM Remove the first argument (-push)
     shift
-    REM Now %1 = branch, %2 = commit message (if any)
+    REM Pass remaining arguments (only commit message expected)
     call "%cmdfolder%\push.cmd" %*
     exit /b %errorlevel%
 )
