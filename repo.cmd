@@ -3,14 +3,27 @@ setlocal
 
 REM === Main Command Dispatcher ===
 
-if "%1"=="" (
+:: Use UTF-8 to support ANSI escape sequences
+chcp 65001 >nul
+
+:: Get the ESC character (ASCII 27)
+for /F %%a in ('"prompt $E & for %%b in (1) do rem"') do set "ESC=%%a"
+
+:: Define color sequences
+set "NAME=%ESC%[32m"
+set "CALL=%ESC%[33m"
+set "COMMAND=%ESC%[36m"
+set "RESET=%ESC%[0m"
+
+:: Check if argument is empty
+if "%~1"=="" (
     echo Usage:
-    echo   repo -new "project-name"
-    echo   repo -edit
-    echo   repo -push
-    echo   repo -commit "message"
-    echo   repo -sync "optional commit message"
-    echo   repo -clone "repository-url"
+    echo   %CALL%"repo%RESET% %COMMAND%"-new"%RESET% %NAME%"project-name"%RESET%
+    echo   %CALL%"repo%RESET% %COMMAND%"-edit"%RESET%
+    echo   %CALL%"repo%RESET% %COMMAND%"-push"%RESET%
+    echo   %CALL%"repo%RESET% %COMMAND%"-commit"%RESET% %NAME%"message"%RESET%
+    echo   %CALL%"repo%RESET% %COMMAND%"-sync"%RESET% %NAME%"optional commit message"%RESET%
+    echo   %CALL%"repo%RESET% %COMMAND%"-clone"%RESET% %NAME%"repository-url"%RESET%
     exit /b 1
 )
 REM Store the commands folder path
