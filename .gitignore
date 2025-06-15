@@ -1,0 +1,14 @@
+# Ignore node_modules
+node_modules/
+ECHO is off.
+# Ignore log files
+*.log
+ECHO is off.
+# Ignore OS files
+Thumbs.db
+.DS_Store
+ECHO is off.
+# Ignore editor files
+*.swp
+*.swo
+.vscode/

@@ -5,6 +5,27 @@ REM ===== Get repo name from current folder =====
 for %%I in (.) do set "REPO_NAME=%%~nxI"
 set "GITHUB_URL=https://github.com/sharky-2/%REPO_NAME%.git"
 
+REM ===== Create .gitignore if it doesn't exist =====
+if not exist ".gitignore" (
+    echo Creating default .gitignore...
+    (
+        echo # Ignore node_modules
+        echo node_modules/
+        echo 
+        echo # Ignore log files
+        echo *.log
+        echo 
+        echo # Ignore OS files
+        echo Thumbs.db
+        echo .DS_Store
+        echo 
+        echo # Ignore editor files
+        echo *.swp
+        echo *.swo
+        echo .vscode/
+    ) > .gitignore
+)
+
 REM ===== Get commit message from arguments =====
 set "COMMIT_MSG=Auto update"
 if not "%~1"=="" (
@@ -20,15 +41,13 @@ if not exist ".git" (
     git branch -M master
 )
 
-REM ===== Check if remote repo exists, create if not =====
-echo Checking if remote repository exists...
-gh repo view sharky-2/%REPO_NAME% >nul 2>&1
+REM ===== Check and add remote origin =====
+git remote get-url origin >nul 2>&1
 if errorlevel 1 (
-    echo Remote repo not found. Creating on GitHub...
-    gh repo create sharky-2/%REPO_NAME% --public --source=. --remote=origin --push
+    echo Adding remote origin %GITHUB_URL%
+    git remote add origin %GITHUB_URL%
 ) else (
-    echo Remote repo found. Setting remote URL...
-    git remote add origin %GITHUB_URL% 2>nul
+    echo Remote origin exists. Updating URL...
     git remote set-url origin %GITHUB_URL%
 )
 
