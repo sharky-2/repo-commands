@@ -1,1 +1,1 @@
-$Env:Path += ";C:\Users\Uporabnik\OneDrive\CMD Commands”
+$Env:Path += ";C:\path\repo-commands”
