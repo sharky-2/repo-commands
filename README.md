@@ -50,4 +50,77 @@
 <pre><code class="language-powershell">$Env:Path += ";C:\path\repo-commands"</code></pre>
 <h3>Usage</h3>
 <p>After installation, you can use the commands directly from your PowerShell terminal. The commands will be available system-wide once the path is properly configured.</p>
+
+<h2>Available Commands</h2>
+<p>repo-commands provides a set of powerful commands to streamline your repository management workflow. Here are all available commands and their usage:</p>
+
+<h3>Basic Commands</h3>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0">
+<strong>repo -new "project-name"</strong>
+<p>Creates a new repository with the specified project name.</p>
+<pre><code class="language-powershell">repo -new "my-awesome-project"</code></pre>
+</li>
+
+<li class="my-0">
+<strong>repo -clone "repository-url"</strong>
+<p>Clones a repository from the provided URL.</p>
+<pre><code class="language-powershell">repo -clone "https://github.com/username/repository.git"</code></pre>
+</li>
+</ul>
+
+<h3>Repository Management</h3>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0">
+<strong>repo -edit</strong>
+<p>Opens the repository in your default editor for making changes.</p>
+<pre><code class="language-powershell">repo -edit</code></pre>
+</li>
+
+<li class="my-0">
+<strong>repo -commit "message"</strong>
+<p>Creates a new commit with the specified message.</p>
+<pre><code class="language-powershell">repo -commit "Add new feature"</code></pre>
+</li>
+
+<li class="my-0">
+<strong>repo -push</strong>
+<p>Pushes your changes to the remote repository.</p>
+<pre><code class="language-powershell">repo -push</code></pre>
+</li>
+
+<li class="my-0">
+<strong>repo -sync "optional commit message"</strong>
+<p>Synchronizes your local repository with the remote, pulling changes and optionally creating a commit.</p>
+<pre><code class="language-powershell">repo -sync "Sync with remote changes"</code></pre>
+</li>
+</ul>
+
+<h3>Command Examples</h3>
+<p>Here are some common workflows using these commands:</p>
+
+<ol class="list-decimal pl-4 my-0">
+<li class="my-0">
+<p><strong>Starting a new project:</strong></p>
+<pre><code class="language-powershell">repo -new "my-project"
+repo -edit
+repo -commit "Initial commit"
+repo -push</code></pre>
+</li>
+
+<li class="my-0">
+<p><strong>Working with an existing project:</strong></p>
+<pre><code class="language-powershell">repo -clone "https://github.com/username/repo.git"
+repo -edit
+repo -commit "Update documentation"
+repo -push</code></pre>
+</li>
+
+<li class="my-0">
+<p><strong>Keeping your repository up to date:</strong></p>
+<pre><code class="language-powershell">repo -sync "Merge remote changes"</code></pre>
+</li>
+</ol>
+
+<p>Each command is designed to be simple and intuitive, making repository management tasks more efficient and less error-prone.</p>
 </div>
